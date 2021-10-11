@@ -3,21 +3,21 @@ var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 
-var todos = [];
+var todosArray = []; //scores
 
 // TODO: What is the purpose of this function?
-// This function renders the todos
+// This function renders the todosArray
 function renderTodos() {
   // TODO: Describe the functionality of the following two lines of code.
   // fist on , sets it to an empty string. Second, gets the length of the todo stirng
   todoList.innerHTML = "";
-  todoCountSpan.textContent = todos.length;
+  todoCountSpan.textContent = todosArray.length;
   
   // TODO: Describe the functionality of the following `for` loop.
   // This function creates the todo list items/buttons at appeands them to the greater to do list. 
   // using the lenght of the todo array to drive this
-  for (var i = 0; i < todos.length; i++) {
-    var todo = todos[i];
+  for (var i = 0; i < todosArray.length; i++) {
+    var todo = todosArray[i];
 
     var li = document.createElement("li");
     li.textContent = todo;
@@ -32,15 +32,15 @@ function renderTodos() {
 }
 
 // TODO: What is the purpose of the following function?
-// creates an ojbects based oof stored todos
+// creates an ojbects based oof stored todosArray
 function init() {
   // TODO: What is the purpose of the following line of code?
     // the JSON converts local storage todo items in to an obejct
-  var storedTodos = JSON.parse(localStorage.getItem("todos"));
+  var storedTodos = JSON.parse(localStorage.getItem("todosArray"));
   // TODO: Describe the functionality of the following `if` statement.
-  // if is the stored todos is not empty, we will render the todos.
+  // if is the stored todosArray is not empty, we will render the todosArray.
   if (storedTodos !== null) {
-    todos = storedTodos;
+    todosArray = storedTodos;
   }
   // TODO: Describe the purpose of the following line of code.
   // sets off the renderTodos function 
@@ -49,8 +49,8 @@ function init() {
 
 function storeTodos() {
   // TODO: Describe the purpose of the following line of code.
-  // the JSON stringify makes our todos into and then stores them locally
-  localStorage.setItem("todos", JSON.stringify(todos));
+  // the JSON stringify makes our todosArray into and then stores them locally
+  localStorage.setItem("todosArray", JSON.stringify(todosArray));
 }
 // TODO: Describe the purpose of the following line of code.
 //
@@ -62,7 +62,7 @@ todoForm.addEventListener("submit", function(event) {
     return;
   }
  // TODO: Describe the purpose of the following lines of code.
-  todos.push(todoText);
+  todosArray.push(todoText);
   todoInput.value = "";
  
   // TODO: What will happen when the following functions are called?
@@ -76,7 +76,7 @@ todoList.addEventListener("click", function(event) {
   // TODO: Describe the functionality of the following `if` statement.
   if (element.matches("button") === true) {
     var index = element.parentElement.getAttribute("data-index");
-    todos.splice(index, 1);
+    todosArray.splice(index, 1);
     // TODO: What will happen when the following functions are called?
     storeTodos();
     renderTodos();
