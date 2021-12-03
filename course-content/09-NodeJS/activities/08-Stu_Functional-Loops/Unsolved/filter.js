@@ -24,9 +24,12 @@ const isPrime = num => {
 
 
 // TODO: Describe how filter is working in this example. What will the value of primeArray be? 
+// the filter is selecting the elements that only meet the criteria from isPrime into our new array.
 const primeArray = originalArray.filter(isPrime);
+console.log(primeArray);
 
 
 // TODO: Describe how filter is working in this example. What will the value of moreThan5Array be? 
+// 
 const moreThan5Array = originalArray.filter(num => num > 5);
-
+console.log(moreThan5Array);

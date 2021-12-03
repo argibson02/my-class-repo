@@ -1,0 +1,18 @@
+DROP DATABASE IF EXISTS customer_db;
+CREATE DATABASE customer_db;
+
+USE customer_db;
+
+CREATE TABLE customers (
+  id INT NOT NULL,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  value_card_member BOOLEAN NOT NULL
+);
+
+INSERT INTO customers(id, first_name, last_name, value_card_member)
+VALUES
+  (1, "firstttt", "lastttt", true);
+
+
+SELECT * FROM customers;

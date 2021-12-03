@@ -1,11 +1,12 @@
 // music should be an object with title, artist, and album properties
 const music = {
-  // code here
- 
+    title: "RUFUS DU SOL",
+    artist:"SOLACE",
+    album: "NO PLACE", 
 };
 
 // Write code between the backticks tags to output the data from the music object above.
-const songSnippet = ``;
+const songSnippet = `${music.title}, ${music.artist}, ${music.album}`;
 
 console.log(songSnippet)
 
